@@ -40,6 +40,7 @@
   },
   "scripts": {
     "start": "cds-serve --production",
+    "watch": "cds watch",
     "lint": "npx eslint .",
     "prettier": "npm run prettier-write && npm run prettier-cds-write",
     "prettier:check": "npm run prettier-check && npm run prettier-cds-check",
