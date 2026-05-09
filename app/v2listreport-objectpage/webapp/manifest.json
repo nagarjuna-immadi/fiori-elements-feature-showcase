@@ -15,6 +15,20 @@
       "version": "1.23.0",
       "toolsId": "ae1d9444-14d0-46c3-ade4-9ba25c9fea56"
     },
+    "crossNavigation": {
+      "inbounds": {
+        "feature-showcase-v2listreport": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "FeatureShowcaseV2",
+          "action": "manage",
+          "title": "V2 List Report and Object Page",
+          "subTitle": "SAP Fiori elements V4 CAP"
+        }
+      }
+    },
     "dataSources": {
       "mainService": {
         "uri": "/srv1/",
@@ -160,6 +174,10 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "featureshowcase.service"
   },
   "sap.fe": {
     "app": {
