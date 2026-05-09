@@ -11,3 +11,5 @@ using from './listreport-objectpage/layouts_ChartDataEntities';
 using from './listreport-objectpage/value-helps';
 using from './listreport-objectpage/layouts_OrganizationalUnits';
 using from './worklist/annotations';
+
+using from './v2listreport-objectpage/annotations';

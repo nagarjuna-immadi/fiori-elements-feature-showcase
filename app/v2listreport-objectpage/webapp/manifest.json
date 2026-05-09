@@ -1,0 +1,169 @@
+{
+  "_version": "1.84.0",
+  "sap.app": {
+    "id": "v2.listreport.objectpage.v2listreportobjectpage",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.23.0",
+      "toolsId": "ae1d9444-14d0-46c3-ade4-9ba25c9fea56"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/srv1/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.01"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.147.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "v2.listreport.objectpage.v2listreportobjectpage.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "RootEntitiesList",
+          "target": "RootEntitiesList"
+        },
+        {
+          "pattern": "RootEntities({key}):?query:",
+          "name": "RootEntitiesObjectPage",
+          "target": "RootEntitiesObjectPage"
+        },
+        {
+          "pattern": "RootEntities({key})/childEntities1({key2}):?query:",
+          "name": "ChildEntities1ObjectPage",
+          "target": "ChildEntities1ObjectPage"
+        }
+      ],
+      "targets": {
+        "RootEntitiesList": {
+          "type": "Component",
+          "id": "RootEntitiesList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/RootEntities",
+              "variantManagement": "Page",
+              "navigation": {
+                "RootEntities": {
+                  "detail": {
+                    "route": "RootEntitiesObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "RootEntitiesObjectPage": {
+          "type": "Component",
+          "id": "RootEntitiesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/RootEntities",
+              "navigation": {
+                "childEntities1": {
+                  "detail": {
+                    "route": "ChildEntities1ObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ChildEntities1ObjectPage": {
+          "type": "Component",
+          "id": "ChildEntities1ObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/RootEntities/childEntities1"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

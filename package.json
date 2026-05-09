@@ -47,12 +47,14 @@
     "prettier-write": "npx prettier . --write",
     "prettier-check": "npx prettier . --check",
     "prettier-cds-write": "npx @sap/cds-lsp format-cds -f",
-    "prettier-cds-check": "npx @sap/cds-lsp format-cds --check"
+    "prettier-cds-check": "npx @sap/cds-lsp format-cds --check",
+    "watch-v2listreport-objectpage": "cds watch --open v2.listreport.objectpage.v2listreportobjectpage/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "sapux": [
     "app/listreport-objectpage",
     "app/worklist",
-    "app/deliveries"
+    "app/deliveries",
+    "app/v2listreport-objectpage"
   ],
   "cds": {
     "features": {
