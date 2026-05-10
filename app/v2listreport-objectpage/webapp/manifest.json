@@ -177,6 +177,9 @@
         "sap.ui.controllerExtensions": {
           "sap.fe.templates.ListReport.ListReportController#v2.listreport.objectpage.v2listreportobjectpage::RootEntitiesList": {
             "controllerName": "v2.listreport.objectpage.v2listreportobjectpage.ext.controller.RootEntityLRExtension"
+          },
+          "sap.fe.templates.ObjectPage.ObjectPageController#v2.listreport.objectpage.v2listreportobjectpage::RootEntitiesObjectPage": {
+            "controllerName": "v2.listreport.objectpage.v2listreportobjectpage.ext.controller.RootEntityOPExtension"
           }
         }
       }
