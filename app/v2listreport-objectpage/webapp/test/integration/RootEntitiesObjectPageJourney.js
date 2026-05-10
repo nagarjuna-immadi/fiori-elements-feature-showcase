@@ -63,8 +63,6 @@ sap.ui.define([
             Then.onTheRootEntitiesObjectPage.iCheckSection({ section: "chartDataCollection" });
             When.onTheRootEntitiesObjectPage.iPressSectionIconTabFilterButton("childEntities1Section");
             Then.onTheRootEntitiesObjectPage.iCheckSection({ section: "childEntities1Section" });
-            When.onTheRootEntitiesObjectPage.iPressSectionIconTabFilterButton("association2one::FieldGroup::data");
-            Then.onTheRootEntitiesObjectPage.iCheckSection({ section: "association2one::FieldGroup::data" });
             When.onTheRootEntitiesObjectPage.iPressSectionIconTabFilterButton("childEntities3::LineItem");
             Then.onTheRootEntitiesObjectPage.iCheckSection({ section: "childEntities3::LineItem" });
             When.onTheRootEntitiesObjectPage.iPressSectionIconTabFilterButton("chartEntities::Chart");

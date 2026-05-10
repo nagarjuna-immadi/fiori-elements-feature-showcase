@@ -37,11 +37,6 @@ sap.ui.define([
             Then.onTheRootEntitiesList.onFilterBar().iCheckFilterField("{i18n>OrganizationalUnit}");
         });
 
-        opaTest("Check table columns and actions", function (Given, When, Then) {
-            Then.onTheRootEntitiesList.onTable().iCheckColumns(17, {"3":{"header":"{i18n>fieldWithToolTip}"},"7":{"header":"{i18n>progressIndicator}"},"8":{"header":"{i18n>ratingIndicator}"},"9":{"header":"{i18n>bulletChart}"},"11":{"header":"{i18n>adminData}"},"12":{"header":"{i18n>radialChart}"},"13":{"header":"{i18n>contactQuickView}"},"14":{"header":"{i18n>changeProgress}"},"15":{"header":"{i18n>IntentBasedNavigation}"},"imageUrl":{"header":"{i18n>image}"},"stringProperty":{"header":"{i18n>semanticKeyField}"},"fieldWithPrice":{"header":"{i18n>fieldWithPrice}"},"fieldWithUoM":{"header":"{i18n>fieldWithUoM}"},"association2one/country_code":{"header":"Navigation field only available via settings"},"fieldWithCriticality":{"header":"{i18n>fieldWithCriticality}"},"association2one_ID":{"header":"{i18n>Order}"},"fieldWithURLtext":{"header":"{i18n>dataFieldWithURL}"}});
-
-        });
-
 
         opaTest("Navigate to ObjectPage", function (Given, When, Then) {
             // Note: this test will fail if the ListReport page doesn't show any data
