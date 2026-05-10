@@ -12,4 +12,5 @@ using from './listreport-objectpage/value-helps';
 using from './listreport-objectpage/layouts_OrganizationalUnits';
 using from './worklist/annotations';
 
-using from './v2listreport-objectpage/annotations';
+using from './v2listreport-objectpage/capabilities';
+using from './v2listreport-objectpage/layouts_RootEntities';

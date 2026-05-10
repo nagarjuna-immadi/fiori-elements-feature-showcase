@@ -1,1 +1,0 @@
-using V2LROPODataService as service from '../../srv/v2-list-report-srv';
