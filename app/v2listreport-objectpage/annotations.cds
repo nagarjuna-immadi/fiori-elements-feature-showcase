@@ -1,1 +1,1 @@
-using LROPODataService as service from '../../srv/list-report-srv';
+using V2LROPODataService as service from '../../srv/v2-list-report-srv';
