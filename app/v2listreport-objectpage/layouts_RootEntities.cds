@@ -4,6 +4,7 @@ annotate service.RootEntities with @(
         {
             $Type : 'UI.DataField',
             Value : imageUrl,
+            @UI.Importance : #High,
         },
     ]
 );
