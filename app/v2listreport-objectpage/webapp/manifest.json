@@ -57,7 +57,6 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.147.2",
       "libs": {
@@ -169,6 +168,15 @@
               "editableHeaderContent": false,
               "contextPath": "/RootEntities/childEntities1"
             }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController#v2.listreport.objectpage.v2listreportobjectpage::RootEntitiesList": {
+            "controllerName": "v2.listreport.objectpage.v2listreportobjectpage.ext.controller.RootEntityLRExtension"
           }
         }
       }
