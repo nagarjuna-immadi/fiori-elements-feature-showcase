@@ -122,6 +122,7 @@
             "settings": {
               "contextPath": "/RootEntities",
               "variantManagement": "Page",
+              "enhanceI18n": "i18n/customI18N.properties",
               "navigation": {
                 "RootEntities": {
                   "detail": {
@@ -135,7 +136,8 @@
                     "type": "ResponsiveTable"
                   }
                 }
-              }
+              },
+              "initialLoad": "Enabled"
             }
           }
         },
@@ -147,6 +149,7 @@
             "settings": {
               "editableHeaderContent": false,
               "contextPath": "/RootEntities",
+              "enhanceI18n": "i18n/customI18N.properties",
               "navigation": {
                 "childEntities1": {
                   "detail": {
