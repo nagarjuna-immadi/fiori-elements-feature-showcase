@@ -1,6 +1,7 @@
 import ControllerExtension from "sap/ui/core/mvc/ControllerExtension";
 import ExtensionAPI from "sap/fe/templates/ListReport/ExtensionAPI";
 import MessageBox from "sap/m/MessageBox";
+import { Button$PressEvent } from "sap/m/Button";
 
 /**
  * @namespace v2.listreport.objectpage.v2listreportobjectpage.ext.controller
@@ -13,6 +14,11 @@ export default class RootEntityLRExtension extends ControllerExtension<Extension
 
   enabled() {
     return true;
+  }
+
+  onResetRating(_: Button$PressEvent) {
+    // @ts-expect-error setFiltersValues has faulty type atm
+    this.base.getExtensionAPI().setFilterValues("starsValue");
   }
 
   static overrides = {

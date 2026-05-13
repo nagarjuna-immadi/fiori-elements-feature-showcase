@@ -135,6 +135,16 @@
                     "type": "ResponsiveTable",
                     "selectionMode": "Multi"
                   }
+                },
+                "@com.sap.vocabularies.UI.v1.SelectionFields": {
+                  "filterFields": {
+                    "customRatingFilter": {
+                      "label": "{i18n>ratingFilter}",
+                      "property": "starsValue",
+                      "template": "v2.listreport.objectpage.v2listreportobjectpage.ext.fragment.CustomFilter-Rating",
+                      "required": false
+                    }
+                  }
                 }
               },
               "initialLoad": "Enabled",
@@ -147,6 +157,11 @@
                   {
                     "key": "tableView1",
                     "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView1"
+                  },
+                  {
+                    "key": "tableView2",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView",
+                    "entitySet": "UnitOfMeasures"
                   }
                 ],
                 "showCounts": false

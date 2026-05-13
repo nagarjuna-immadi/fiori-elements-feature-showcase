@@ -1,4 +1,6 @@
 using V2LROPODataService as service from '../../srv/v2-list-report-srv';
+using from '../../db/common';
+
 annotate service.RootEntities with @(
     UI.LineItem : [
         {
@@ -84,6 +86,32 @@ annotate service.RootEntities with @(
             },
         ],
         Text : '{i18n>SVariant1}',
+    },
+    UI.SelectionFields : [
+        stringProperty,
+        validFrom,
+        childEntities1.criticalityValue_code,
+        organizationalUnit_ID,
+    ],
+);
+
+annotate service.UnitOfMeasures with @(
+    UI.LineItem #tableView : [
+    ],
+    UI.SelectionPresentationVariant #tableView : {
+        $Type : 'UI.SelectionPresentationVariantType',
+        PresentationVariant : {
+            $Type : 'UI.PresentationVariantType',
+            Visualizations : [
+                '@UI.LineItem#tableView',
+            ],
+        },
+        SelectionVariant : {
+            $Type : 'UI.SelectionVariantType',
+            SelectOptions : [
+            ],
+        },
+        Text : '{i18n>OrganizationalUnits}',
     },
 );
 
