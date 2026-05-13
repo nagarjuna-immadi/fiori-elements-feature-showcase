@@ -6,6 +6,16 @@ annotate service.RootEntities with @(
             Value : imageUrl,
             @UI.Importance : #High,
         },
+        {
+            $Type : 'UI.DataField',
+            Value : stringProperty,
+            @UI.Importance : #High,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : fieldWithPrice,
+            @UI.Importance : #High,
+        },
     ],
     UI.SelectionPresentationVariant #tableView : {
         $Type : 'UI.SelectionPresentationVariantType',

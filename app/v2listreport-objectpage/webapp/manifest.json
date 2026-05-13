@@ -150,6 +150,18 @@
                   }
                 ],
                 "showCounts": false
+              },
+              "content": {
+                "header": {
+                  "actions": {
+                    "customAction": {
+                      "press": ".extension.v2.listreport.objectpage.v2listreportobjectpage.ext.controller.RootEntityLRExtension.messageBox",
+                      "enabled": ".extension.v2.listreport.objectpage.v2listreportobjectpage.ext.controller.RootEntityLRExtension.enabled",
+                      "visible": true,
+                      "text": "{i18n>customAction}"
+                    }
+                  }
+                }
               }
             }
           }
