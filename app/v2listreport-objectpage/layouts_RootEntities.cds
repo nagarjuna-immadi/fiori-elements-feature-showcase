@@ -18,6 +18,16 @@ annotate service.RootEntities with @(
             Value : fieldWithPrice,
             @UI.Importance : #High,
         },
+        {
+            $Type : 'UI.DataFieldForAnnotation',
+            Target: '@UI.DataPoint#fieldWithTooltip',
+            Label : '{i18n>fieldWithToolTip}',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : fieldWithUoM,
+            @UI.Importance : #Low,
+        },
     ],
     UI.SelectionPresentationVariant #tableView : {
         $Type : 'UI.SelectionPresentationVariantType',
@@ -93,6 +103,13 @@ annotate service.RootEntities with @(
         childEntities1.criticalityValue_code,
         organizationalUnit_ID,
     ],
+);
+
+annotate service.RootEntities with @(
+    UI.DataPoint #fieldWithTooltip : {
+        Value            : dimensions,
+        @Common.QuickInfo: '{i18n>toolTip}',
+    },
 );
 
 annotate service.UnitOfMeasures with @(

@@ -6,6 +6,6 @@
 				id="MyCustomRatingIndicatorId" maxValue="4" class="sapUiTinyMarginBegin"
 				value="{path: 'filterValues>', type: 'sap.fe.macros.filter.type.Value', formatOptions: { operator: 'GE' }}"
 			/>
-			<core:Icon src="sap-icon://reset" press=".extension.sap.fe.showcase.lrop.ext.controller.RootEntityLRExtension.onResetRating" class="sapUiSmallMarginBegin" />
+			<core:Icon src="sap-icon://reset" press=".extension.v2.listreport.objectpage.v2listreportobjectpage.ext.controller.RootEntityLRExtension.onResetRating" class="sapUiSmallMarginBegin" />
 	</HBox>
 </core:FragmentDefinition>

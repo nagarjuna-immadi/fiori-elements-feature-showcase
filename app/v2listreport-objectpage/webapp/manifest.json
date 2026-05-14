@@ -120,8 +120,8 @@
           "options": {
             "settings": {
               "contextPath": "/RootEntities",
-              "variantManagement": "Page",
               "enhanceI18n": "i18n/customI18N.properties",
+              "liveMode": true,
               "navigation": {
                 "RootEntities": {
                   "detail": {
@@ -157,11 +157,6 @@
                   {
                     "key": "tableView1",
                     "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView1"
-                  },
-                  {
-                    "key": "tableView2",
-                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView",
-                    "entitySet": "UnitOfMeasures"
                   }
                 ],
                 "showCounts": false
@@ -177,7 +172,8 @@
                     }
                   }
                 }
-              }
+              },
+              "variantManagement": "Page"
             }
           }
         },
