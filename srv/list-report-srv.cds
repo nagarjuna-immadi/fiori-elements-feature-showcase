@@ -9,7 +9,7 @@ using {sap.common as common} from '../db/common';
 @requires               : 'authenticated-user'
 service LROPODataService @(path: '/srv1') {
 
-            @Capabilities.SortRestrictions.NonSortableProperties: [
+    @Capabilities.SortRestrictions.NonSortableProperties: [
         createdAt,
         createdBy,
         modifiedAt,
