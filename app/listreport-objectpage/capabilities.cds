@@ -4,8 +4,7 @@ annotate srv.RootEntities with @odata.draft.enabled; //Search-Term: #Draft
 
 annotate srv.RootEntities with @(
     //Disables the delete option dependent of the fields value
-    Capabilities.DeleteRestrictions: {Deletable: deletePossible, //Search-Term: #DynamicCRUD
-    },
+    Capabilities.DeleteRestrictions: {Deletable: deletePossible}, //Search-Term: #DynamicCRUD
     /* Capabilities.UpdateRestrictions : {
         Updatable : updatePossible, //UpdateRestrictions are ignored in determining if the edit button is visible or not, but it still affects wheather the fields are editable or not
     }, */
@@ -13,31 +12,34 @@ annotate srv.RootEntities with @(
 
     UI.CreateHidden                : {$edmJson: {$Path: '/Singleton/createHidden'}}, //Search-Term: #DynamicCRUD
 
-    Capabilities.FilterRestrictions: {FilterExpressionRestrictions: [{
-        //Search-Term: #SemanticDateFilter
-        Property          : 'validFrom',
-        AllowedExpressions: 'SingleRange' //Other option: SingleValue
-    }, ],
-    // RequiredProperties : [
-    //     stringProperty //Search-Term: #RequiredFilter
-    // ]
+    Capabilities.FilterRestrictions: {
+        FilterExpressionRestrictions: [{
+            //Search-Term: #SemanticDateFilter
+            Property          : 'validFrom',
+            AllowedExpressions: 'SingleRange' //Other option: SingleValue
+        }],
+        // RequiredProperties : [
+        //     stringProperty //Search-Term: #RequiredFilter
+        // ]
     },
 ) {
     validTo @UI.DateTimeStyle: 'short'
 };
 
-annotate LROPODataService with @(Capabilities.FilterFunctions: ['tolower' //Search-Term: #CaseInsensitiveFiltering
-], );
+annotate LROPODataService with @(
+    Capabilities.FilterFunctions: ['tolower'] //Search-Term: #CaseInsensitiveFiltering
+);
 
 annotate srv.ChartDataEntities with @(
-                                      //Search-Term: #ChartSection
-                                    Aggregation.ApplySupported: {
-    GroupableProperties   : [
-        dimensions,
-        criticality_code
-    ],
-    AggregatableProperties: [{Property: integerValue}, ],
-});
+    //Search-Term: #ChartSection
+    Aggregation.ApplySupported: {
+        GroupableProperties   : [
+            dimensions,
+            criticality_code
+        ],
+        AggregatableProperties: [{Property: integerValue}],
+    }
+);
 
 annotate srv.ChartDataEntities with {
     //Search-Term: #ChartSection
@@ -78,9 +80,9 @@ annotate srv.OrganizationalUnits @(
         ChangeNextSiblingAction       : 'LROPODataService.moveOrgUnit',
         CopyAction                    : 'LROPODataService.copyOrgUnit',
     },
-// To disable cut, paste & drag & drop & move up & down. Copy & Paste still allowed
-// Be aware this currently does only affect the UI but not enforce the restriction on API level!
-// Capabilities: {UpdateRestrictions: {NonUpdatableNavigationProperties: [superOrdinateOrgUnit]}}
+    // To disable cut, paste & drag & drop & move up & down. Copy & Paste still allowed
+    // Be aware this currently does only affect the UI but not enforce the restriction on API level!
+    // Capabilities: {UpdateRestrictions: {NonUpdatableNavigationProperties: [superOrdinateOrgUnit]}}
 );
 
 // Fiori expects the following to be defined explicitly, even though they're always the same
