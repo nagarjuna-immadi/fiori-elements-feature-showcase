@@ -93,14 +93,14 @@ aspect rootBasis : {
 // audit trail (managed). Owns all child data via Composition (cascaded delete).
 // association2one to Orders is a non-owning foreign-key reference (not cascaded).
 entity RootEntities : cuid, managed, rootBasis {
-    childEntities1  : Composition of many ChildEntities1  // owned child rows, sub-object table
+    childEntities1  : Composition of many ChildEntities1 // owned child rows, sub-object table
                           on childEntities1.parent = $self;
-    association2one : Association to one Orders;           // referenced, not owned
+    association2one : Association to one Orders; // referenced, not owned
     childEntities3  : Composition of many ChildEntities3
                           on childEntities3.parent = $self;
     chartEntities   : Composition of many ChartDataEntities // chart demo data per root
                           on chartEntities.parent = $self;
-    regions         : Composition of many AssignedRegions  // many-to-many bridge to Regions
+    regions         : Composition of many AssignedRegions // many-to-many bridge to Regions
                           on regions.root = $self;
 };
 
@@ -215,8 +215,8 @@ entity OrganizationalUnits : cuid {
     description          : localized String(256);
     isActive             : Boolean default true;
     category             : Association to one OrganizationalUnitCategoryCodes;
-    superOrdinateOrgUnit : Association to one OrganizationalUnits;   // parent node
-    subordinaryOrgUnits  : Association to many OrganizationalUnits   // child nodes
+    superOrdinateOrgUnit : Association to one OrganizationalUnits; // parent node
+    subordinaryOrgUnits  : Association to many OrganizationalUnits // child nodes
                                on subordinaryOrgUnits.superOrdinateOrgUnit = $self;
 
 }
