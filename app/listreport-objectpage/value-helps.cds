@@ -1,11 +1,11 @@
-using {sap.fe.showcase as schema} from '../../db/schema';
+using LROPODataService as service from '../../srv/list-report-srv';
 
 //
 // annotations for value helps
 // Search-Term: #ValueHelps
 //
 
-annotate schema.RootEntities with {
+annotate service.RootEntities with {
     uom                         @Common.ValueListWithFixedValues; //Instead of dialog box, the value help is a dropdown
     criticality_code            @(Common: {
         ValueListWithFixedValues: true,
@@ -191,7 +191,7 @@ annotate schema.RootEntities with {
     });
 };
 
-annotate schema.AssignedRegions with {
+annotate service.AssignedRegions with {
     //Search-Term: #MultiValueWithDependentFilter
     region @(Common: {
         Text                    : region.name,

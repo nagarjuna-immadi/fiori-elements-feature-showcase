@@ -1,10 +1,10 @@
-using {sap.fe.showcase as schema} from '../../db/schema';
+using LROPODataService as service from '../../srv/list-report-srv';
 
 //
 // annotations that control rendering of fields and labels
 //
 
-annotate schema.RootEntities with {
+annotate service.RootEntities with {
     childEntities1              @title: '{i18n>childEntities1}';
     stringProperty              @title: '{i18n>semanticKeyField}';
     integerValue                @title: '{i18n>integerValue}';
@@ -38,25 +38,24 @@ annotate schema.RootEntities with {
     organizationalUnit          @title: '{i18n>OrganizationalUnit}';
 };
 
-annotate schema.ChildEntities1 with @title: '{i18n>childEntities1}' {
+annotate service.ChildEntities1 with @title: '{i18n>childEntities1}' {
     field             @title              : '{i18n>field}';
     booleanProperty   @title              : '{i18n>booleanProperty}';
     fieldWithPerCent  @title: '{i18n>fieldWithPerCent}'  @(Measures.Unit: '%'); //Search-Term: #Units
     criticalityValue  @title: '{i18n>criticality}'       @Common.Text: criticalityValue.name  @Common.TextArrangement: #TextFirst;
 };
 
-annotate schema.GrandChildEntities with @title: '{i18n>grandChildren}' {
+annotate service.GrandChildEntities with @title: '{i18n>grandChildren}' {
     field @title                              : '{i18n>field}'
 };
 
-annotate schema.Orders with @title: '{i18n>Order}' {
+annotate service.Orders with @title: '{i18n>Order}' {
     integerProperty @title        : '{i18n>integerProperty}';
     decimalProperty @title        : '{i18n>decimalProperty}';
     stringProperty  @title      : '{i18n>stringProperty}'  @UI.MultiLineText; //MultiLineText for Descriptions (line break)
-    country         @Common.Text: country.name             @Common.TextArrangement: #TextFirst;
 };
 
-annotate schema.OrderItems with @title: '{i18n>OrderItems}' {
+annotate service.OrderItems with @title: '{i18n>OrderItems}' {
     ID              @UI.Hidden;
     order           @UI.Hidden;
     product         @title            : '{i18n>Product}';
@@ -65,11 +64,11 @@ annotate schema.OrderItems with @title: '{i18n>OrderItems}' {
     currency        @title            : '{i18n>Currency}';
 };
 
-annotate schema.ChildEntities3 with @title: '{i18n>childEntities3}' {
+annotate service.ChildEntities3 with @title: '{i18n>childEntities3}' {
     field @title                          : '{i18n>stringProperty}'
 };
 
-annotate schema.ChartDataEntities with {
+annotate service.ChartDataEntities with {
     integerValue        @title        : '{i18n>integerValue}';
     forecastValue       @title        : '{i18n>forecastValue}';
     targetValue         @title        : '{i18n>targetValue}';
@@ -77,12 +76,12 @@ annotate schema.ChartDataEntities with {
     integerValueWithUoM @Measures.Unit: uom_code;
 };
 
-annotate schema.Contacts with {
+annotate service.Contacts with {
     ID  @title: '{i18n>Name}'  @Common.Text: name  @Common.TextArrangement: #TextOnly
 };
 
 
-annotate schema.OrganizationalUnits with {
+annotate service.OrganizationalUnits with {
     ID                    @title: '{i18n>ID}'                    @Core.Computed                           @Common.Text           : name       @Common.TextArrangement: #TextFirst;
     externalId            @title: '{i18n>ExternalId}'            @Core.Computed;
     name                  @title: '{i18n>Name}';
@@ -93,6 +92,6 @@ annotate schema.OrganizationalUnits with {
     subordinaryOrgUnits   @title: '{i18n>SubordinaryOrgUnits}';
 }
 
-annotate schema.OrganizationalUnitCategoryCodes with {
+annotate service.OrganizationalUnitCategoryCodes with {
     code @Common.Text: name
 }
