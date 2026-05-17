@@ -1,0 +1,167 @@
+SAP Fiori, UI5 and CAP Annotations Reference
+==============================================
+
+
+CAP CDS (Core/Foundation)
+==========================
+
+Element-level
+-------------
+@title, @description                    -- field labels and descriptions
+@mandatory, @readonly                   -- basic field constraints
+@assert.range, @assert.format,
+@assert.unique                          -- validation
+@cds.persistence.skip                   -- exclude from DB
+@cds.autoexpose                         -- auto-expose as service entity
+
+Service-level
+-------------
+@odata.draft.enabled                    -- draft/activate workflow
+@Capabilities.*                         -- full CRUD control (see below)
+
+
+OData Capabilities Vocabulary
+==============================
+
+@Capabilities.insertRestrictions
+@Capabilities.updateRestrictions
+@Capabilities.deleteRestrictions        -- control mutability
+@Capabilities.filterRestrictions        -- required filters, allowed filter expressions
+@Capabilities.sortRestrictions          -- non-sortable properties
+@Capabilities.searchRestrictions        -- enable/disable $search
+@Capabilities.navigationRestrictions    -- restrict deep navigation
+
+
+Common Vocabulary (@Common)
+============================
+
+@Common.label                           -- field label override
+@Common.text                            -- code-to-text association (e.g. status -> status.name)
+@Common.textArrangement                 -- #TextOnly, #TextFirst, #TextLast, #TextSeparate
+@Common.fieldControl                    -- dynamic editability(#ReadOnly, #Mandatory, #Optional, #Inapplicable)
+@Common.valueList                       -- value help dropdowns
+@Common.valueListWithFixedValues        -- fixed value help dropdowns
+@Common.semanticKey                     -- identify entity by business key (not technical key)
+@Common.sideEffects                     -- field dependency declarations (trigger re-fetch on change)
+@Common.isUpperCase                     -- force uppercase input
+@Common.isCurrency                      -- mark as currency field
+@Common.isUnit                          -- mark as unit of measure field
+@Common.unitOfMeasure                   -- unit/currency associations
+@Common.currencyCode                    -- currency code association
+@Common.messages                        -- OData message container
+
+
+UI Vocabulary (@UI) - The Biggest Area
+=======================================
+
+List Report
+-----------
+@UI.selectionFields                     -- filter bar fields
+@UI.lineItem                            -- table columns
+@UI.presentationVariant                 -- default sort/group/visualize
+@UI.selectionVariant                    -- default filter values
+@UI.chart                               -- analytical chart definition
+@UI.filterFacets                        -- group filter fields into groups
+
+Object Page Header
+------------------
+@UI.headerInfo                          -- title, description, image fields
+@UI.headerFacets                        -- header area content (KPIs, charts, contacts)
+@UI.dataPoint                           -- KPI value with criticality/trend
+@UI.badge                               -- compact badge display
+
+Object Page Body
+----------------
+@UI.facets                              -- page sections (use ReferenceFacet and CollectionFacet)
+@UI.fieldGroup                          -- form group of fields
+@UI.identification                      -- quick view / object identifier section
+@UI.quickViewFacets                     -- popup quick view content
+
+Field Types in lineItem / fieldGroup
+-------------------------------------
+#DataField                              -- plain field
+#DataFieldForAction                     -- action button
+#DataFieldForAnnotation                 -- reference another annotation (chart, dataPoint)
+#DataFieldWithUrl                       -- clickable URL
+#DataFieldWithNavigationPath            -- in-app navigation
+#DataFieldForIntentBasedNavigation      -- cross-app navigation
+#DataFieldWithAction                    -- inline action button
+
+Visibility & Behavior
+----------------------
+@UI.hidden                              -- hide a field
+@UI.importance                          -- #High / #Medium / #Low (responsive column hiding)
+@UI.multiLineText                       -- textarea rendering
+@UI.connectedFields                     -- render multiple fields as one (e.g. first + last name)
+@UI.createHidden                        -- hide Create button
+@UI.updateHidden                        -- hide Edit button
+@UI.deleteHidden                        -- hide Delete button
+
+
+Validation Vocabulary
+======================
+
+@Validation.minimum                     -- minimum numeric value
+@Validation.maximum                     -- maximum numeric value
+@Validation.pattern                     -- regex constraint
+@Validation.allowedValues               -- enum of valid values
+
+
+Core Vocabulary (@Core)
+========================
+
+@Core.computed                          -- server-computed, not user-editable
+@Core.isURL                             -- render as hyperlink
+@Core.mediaType                         -- MIME type for media streams
+@Core.description                       -- short description
+@Core.longDescription                   -- long description
+
+
+Aggregation / Analytics
+========================
+
+@Aggregation.default                    -- #SUM, #AVG, #COUNT, etc.
+@Analytics.measure                      -- mark as measure
+@Analytics.dimension                    -- mark as dimension
+
+
+Communication Vocabulary
+=========================
+
+@Communication.contact                  -- map fields to vCard (name, email, phone)
+
+
+Learning Priority Order
+========================
+
+Priority 1 (Start here)
+------------------------
+@UI.lineItem
+@UI.selectionFields
+@UI.headerInfo
+@UI.facets
+
+Priority 2 (Core UX)
+---------------------
+@Common.text
+@Common.textArrangement
+@Common.fieldControl
+@Common.valueList
+
+Priority 3 (Data control)
+--------------------------
+@Capabilities.*
+@odata.draft.enabled
+@Common.sideEffects
+
+Priority 4 (Analytics)
+-----------------------
+@UI.chart
+@UI.dataPoint
+@UI.presentationVariant
+
+Priority 5 (Advanced)
+----------------------
+@Communication.*
+@Aggregation.*
+@Analytics.*
