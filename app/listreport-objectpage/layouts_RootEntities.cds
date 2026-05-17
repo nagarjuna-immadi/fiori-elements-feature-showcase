@@ -18,7 +18,7 @@ annotate srv.RootEntities with @(
             Label                    : '{i18n>changeCriticality}',
             Criticality              : criticality_code, //Only 0,1,3 supported
             CriticalityRepresentation: #WithIcon,
-        //Has no effect
+            //Has no effect
         },
         {
             //Search-Term: #DeterminingAction
@@ -264,7 +264,7 @@ annotate srv.RootEntities with @(
             Action        : 'LROPODataService.EntityContainer/unboundAction',
             Label         : '{i18n>formActionEmphasized}',
             @UI.Emphasized: true,
-        //Button is highlighted
+            //Button is highlighted
         },
         {
             //Action for the field group. Visible in the upper right corner of the form
@@ -272,7 +272,7 @@ annotate srv.RootEntities with @(
             Action: 'LROPODataService.changeProgress',
             Label : '{i18n>formAction}',
             Inline: true,
-        //Action in the Form toolbar instead of the section toolbar
+            //Action in the Form toolbar instead of the section toolbar
         },
         {
             $Type: 'UI.DataField',
@@ -344,23 +344,24 @@ annotate srv.RootEntities with @(
 // UI.ConnectedFields
 // Search-Term: #ConnectedFields
 annotate srv.RootEntities with @(
-                                 //Connected Fields only possible for sections on object pages
-                                 //Wont render in tables and not possible in RootEntities sections
-                               UI.ConnectedFields #ConnectedDates: {
-    Label   : '{i18n>connectedField}',
-    Template: '{integerValue} / {targetValue}',
-    Data    : {
-        integerValue: {
-            $Type: 'UI.DataField',
-            //Without $Type, it wont work
-            Value: integerValue,
-        },
-        targetValue : {
-            $Type: 'UI.DataField',
-            Value: targetValue,
+    //Connected Fields only possible for sections on object pages
+    //Wont render in tables and not possible in RootEntities sections
+    UI.ConnectedFields #ConnectedDates: {
+        Label   : '{i18n>connectedField}',
+        Template: '{integerValue} / {targetValue}',
+        Data    : {
+            integerValue: {
+                $Type: 'UI.DataField',
+                //Without $Type, it wont work
+                Value: integerValue,
+            },
+            targetValue : {
+                $Type: 'UI.DataField',
+                Value: targetValue,
+            },
         },
     },
-}, );
+);
 
 // UI.HeaderInfo
 // Search-Term: #HeaderInfo
@@ -378,7 +379,7 @@ annotate srv.RootEntities with @(UI.HeaderInfo: {
     ImageUrl      : imageUrl,
     TypeImageUrl  : 'sap-icon://sales-order',
     Initials      : 'RE',
-//Up to two latin letters are displayed
+    //Up to two latin letters are displayed
 }, );
 
 // UI.HeaderFacets
@@ -555,49 +556,52 @@ annotate srv.RootEntities with @(UI.Facets: [
         Target: 'chartEntities/@UI.Chart',
         Label : '{i18n>chart}'
     },
-/*{
-    $Type   : 'UI.ReferenceFacet',
-    Label   : '{i18n>AdminData}',
-    Target  : '@UI.FieldGroup#AdminData',
-},*/
+    /*{
+        $Type   : 'UI.ReferenceFacet',
+        Label   : '{i18n>AdminData}',
+        Target  : '@UI.FieldGroup#AdminData',
+    },*/
 ], );
 
 // UI.PresentationVariant
 // Search-Term: #DefaultSort
 annotate srv.RootEntities with @(UI.PresentationVariant: {
     SortOrder     : [ //Default sort order
-    {
-        Property  : stringProperty,
-        Descending: false,
-    }, ],
+        {
+            Property  : stringProperty,
+            Descending: false,
+        },
+    ],
     Visualizations: ['@UI.LineItem'],
 }, );
 
 // UI.FilterFacets
 // Search-Term: #FilterGrouping
 annotate srv.RootEntities with @(
-                                 //Custom groups, when selecting filter fields
-                               UI.FilterFacets: [
-    {
-        Target: '@UI.FieldGroup#chartData',
-        Label : '{i18n>chartData}',
-    },
-    {
-        Target: '@UI.FieldGroup#location',
-        Label : '{i18n>location}',
-    },
-], );
+    //Custom groups, when selecting filter fields
+    UI.FilterFacets: [
+        {
+            Target: '@UI.FieldGroup#chartData',
+            Label : '{i18n>chartData}',
+        },
+        {
+            Target: '@UI.FieldGroup#location',
+            Label : '{i18n>location}',
+        },
+    ],
+);
 
 // UI.SelectionFields
 // Search-Term: #VisibleFilters
 annotate srv.RootEntities with @(
-                                 //Shown filters for the given fields after opening the application
-                               UI.SelectionFields: [
-    stringProperty,
-    validFrom,
-    childEntities1.criticalityValue_code, //Search-Term: #NavigationProperties
-    organizationalUnit_ID,
-], );
+    //Shown filters for the given fields after opening the application
+    UI.SelectionFields: [
+        stringProperty,
+        validFrom,
+        childEntities1.criticalityValue_code, //Search-Term: #NavigationProperties
+        organizationalUnit_ID,
+    ],
+);
 
 // UI.SelectionVariant
 // Search-Terms: #multipleViews, #SVariant
@@ -605,17 +609,18 @@ annotate srv.RootEntities with @(
     UI.SelectionVariant #variant1: {
         Text         : '{i18n>SVariant1}',
         SelectOptions: [ //Filtering of entity sets
-        {
-            PropertyName: criticality_code,
-            Ranges      : [{
-                Sign  : #I,
-                //Include
-                High  : 2,
-                Option: #BT,
-                //Betweeen
-                Low   : 0,
-            }, ],
-        }, ],
+            {
+                PropertyName: criticality_code,
+                Ranges      : [{
+                    Sign  : #I,
+                    //Include
+                    High  : 2,
+                    Option: #BT,
+                    //Betweeen
+                    Low   : 0,
+                }, ],
+            },
+        ],
     },
     UI.SelectionVariant #variant2: {
         Text         : '{i18n>SVariant2}',
@@ -681,7 +686,7 @@ annotate srv.RootEntities with @(
         ForecastValue: forecastValue, //horizontal bar behind the value bar with, slightly larger with higher transparency
         Criticality  : criticality_code, //> optional criticality
         MinimumValue : 0,
-    //Minimal value, needed for output rendering
+        //Minimal value, needed for output rendering
     },
     UI.DataPoint #radialChart      : {
         //Search-Terms: #MicroChart, #microChartRadial

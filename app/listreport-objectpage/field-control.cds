@@ -55,10 +55,12 @@ annotate srv.RootEntities actions {
     //Search-Terms: #SideEffect, #ParameterDefaultValue
     changeProgress @(
         //Update the UI after action
-        Common.SideEffects     : {TargetProperties: [
-            ($self.criticality_code),
-            'in/integerValue'
-        ]},
+        Common.SideEffects     : {
+            TargetProperties: [
+                ($self.criticality_code),
+                'in/integerValue'
+            ]
+        },
         Core.OperationAvailable: ($self.integerValue > 0)
     )
 }

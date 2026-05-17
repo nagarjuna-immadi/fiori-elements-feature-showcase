@@ -46,10 +46,11 @@ annotate srv.Orders with @(
 // UI.QuickViewFacets
 // Search-Term: #QuickView
 annotate srv.Orders with @(
-                           // When a semantic object for the entity is defined, the related apps will be shown
-                           // below the quick view facet on the panel.
-                         UI.QuickViewFacets: [{
-    $Type : 'UI.ReferenceFacet',
-    Target: '@UI.FieldGroup#data',
-    Label : '{i18n>Order}',
-}], );
+    // When a semantic object for the entity is defined, the related apps will be shown
+    // below the quick view facet on the panel.
+    UI.QuickViewFacets: [{
+        $Type : 'UI.ReferenceFacet',
+        Target: '@UI.FieldGroup#data',
+        Label : '{i18n>Order}',
+    }],
+);

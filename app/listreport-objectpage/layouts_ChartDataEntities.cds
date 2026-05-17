@@ -167,24 +167,25 @@ annotate srv.ChartDataEntities with @(
 );
 
 annotate srv.ChartDataEntities with @(
-                                      //Search-Term: #ChartSection
-                                    Analytics.AggregatedProperties: [
-    {
-        Name                : 'minAmount',
-        AggregationMethod   : 'min',
-        AggregatableProperty: 'integerValue',
-        @Common.Label       : 'Minimal Net Amount'
-    },
-    {
-        Name                : 'maxAmount',
-        AggregationMethod   : 'max',
-        AggregatableProperty: 'integerValue',
-        @Common.Label       : 'Maximal Net Amount'
-    },
-    {
-        Name                : 'avgAmount',
-        AggregationMethod   : 'average',
-        AggregatableProperty: 'integerValue',
-        @Common.Label       : 'Average Net Amount'
-    }
-], );
+    //Search-Term: #ChartSection
+    Analytics.AggregatedProperties: [
+        {
+            Name                : 'minAmount',
+            AggregationMethod   : 'min',
+            AggregatableProperty: 'integerValue',
+            @Common.Label       : 'Minimal Net Amount'
+        },
+        {
+            Name                : 'maxAmount',
+            AggregationMethod   : 'max',
+            AggregatableProperty: 'integerValue',
+            @Common.Label       : 'Maximal Net Amount'
+        },
+        {
+            Name                : 'avgAmount',
+            AggregationMethod   : 'average',
+            AggregatableProperty: 'integerValue',
+            @Common.Label       : 'Average Net Amount'
+        }
+    ],
+);
