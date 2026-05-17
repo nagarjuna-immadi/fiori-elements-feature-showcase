@@ -1,6 +1,12 @@
 using V2LROPODataService as service from '../../srv/v2-list-report-srv';
 using from '../../db/common';
 
+// UI.Identification
+annotate service.RootEntities with @(
+    Common.SemanticKey: [stringProperty],
+);
+
+// UI.LineItem
 annotate service.RootEntities with @(
     UI.LineItem : [
         {
@@ -17,16 +23,6 @@ annotate service.RootEntities with @(
             $Type : 'UI.DataField',
             Value : fieldWithPrice,
             @UI.Importance : #High,
-        },
-        {
-            $Type : 'UI.DataFieldForAnnotation',
-            Target: '@UI.DataPoint#fieldWithTooltip',
-            Label : '{i18n>fieldWithToolTip}',
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : fieldWithUoM,
-            @UI.Importance : #Low,
         },
     ],
     UI.SelectionPresentationVariant #tableView : {
