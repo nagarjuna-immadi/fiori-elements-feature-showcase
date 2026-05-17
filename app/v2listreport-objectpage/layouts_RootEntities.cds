@@ -24,6 +24,16 @@ annotate service.RootEntities with @(
             Value : fieldWithPrice,
             @UI.Importance : #High,
         },
+        {
+            $Type : 'UI.DataFieldForAnnotation',
+            Target : '@UI.DataPoint#fieldWithTooltip',
+            Label : '{i18n>fieldWithToolTip}',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : fieldWithUoM,
+            @UI.Importance : #Low,
+        },
     ],
     UI.SelectionPresentationVariant #tableView : {
         $Type : 'UI.SelectionPresentationVariantType',
